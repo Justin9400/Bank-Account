@@ -4,22 +4,21 @@
 using namespace std;
 
 //adds the users name to the list of client names 
-void write_into_files::add_name_into_names_file(string full_name)
+void write_into_files::add_name_into_names_file(string full_name, string namesTextFile)
 {
 	ofstream myFile;
-	myFile.open("C:/Users/Justk/source/repos/Bank Account/Client Files/names.txt", ios_base::app);
+	myFile.open(namesTextFile, ios_base::app);
 	myFile << full_name << endl;
 	myFile.close();
 }
 
 //Creates a new text file if there is no account under the users name
-string write_into_files::create_new_text_file(string full_name)
+void write_into_files::create_new_text_file(string full_name, string Client_Files_Path)
 {
 	string client_file_name = (full_name + ".txt"); //Sets the file name as a variable
 	client_file_name.erase(remove_if(client_file_name.begin(), client_file_name.end(), ::isspace), client_file_name.end()); //Gets rid of the space between full_name and .txt
-	string client_file_path = ("C:Client Files/" + client_file_name);
-	ofstream client_file(client_file_name.c_str()); //Creates the text file with the name of the user
-	return client_file_path;
+	string Client_info_path = "C:/Users/Justk/source/repos/Bank Account/Client Files/" + client_file_name;
+	ofstream client_file(Client_info_path.c_str()); //Creates the text file with the name of the user
 }
 
 //Writes the clients name into the clients file 

@@ -40,6 +40,8 @@ int main()
 
 	string full_name = ask_user_for_full_name();
 	vector <string> names = rif.read_in_names();
+	string namesTextFile = "C:/Users/Justk/source/repos/Bank Account/Client Files/names.txt";
+	string Client_Files_Path = "C:/Users/Justk/source/repos/Bank Account/Client Files";
 
 	if (rif.check_if_name_in_file(full_name, names) == false)
 	{
@@ -49,8 +51,8 @@ int main()
 
 		if (choice == "yes" || choice == "Yes") //If a new client wants to create an account 
 		{
-			wif.add_name_into_names_file(full_name); //Adds the name the user gives to the list of client names
-			wif.create_new_text_file(full_name); //Creates a new text file titled the name the user gave
+			wif.add_name_into_names_file(full_name, namesTextFile); //Adds the name the user gives to the list of client names
+			wif.create_new_text_file(full_name, namesTextFile); //Creates a new text file titled the name the user gave
 			//system("CLS"); //Clears the screen
 			acc.set_account_name(); //Asks the user for the name the account will be under 
 			acc.set_account_type(); //Asks the user for the type of account they would like to create
